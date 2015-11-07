@@ -1,4 +1,96 @@
-syntax on
+""""""""""""""""""""""""""""""""""""""" VUNDLE STUFF START
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-sensible'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'wookiehangover/jshint.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+""""""""""""""""""""""""""""""""""""""" VUNDLE STUFF END
+
+filetype plugin indent on
+syntax on
+set encoding=utf-8
+
+" Basics
+
+inoremap jk <ESC>
+let mapleader = ","
+set number
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent " Match indents on new lines.
+set smartindent " Intellegently dedent / indent new lines based on rules.
+
+" Make search more sane
+set ignorecase " case insensitive search
+set smartcase " If there are uppercase letters, become case-sensitive.
+set incsearch " live incremental searching
+set showmatch " live match highlighting
+set hlsearch " highlight matches
+set gdefault " use the `g` flag by default.
+
+
+" Arrows are unvimlike
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" Syntastic Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Color Scheme
+colo xoria256
+" colorscheme distinguished
+hi Normal ctermbg=NONE
+
